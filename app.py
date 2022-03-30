@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from routes.hotel import hotel
+from routes.hotel import app
 from docs import tags_metadata
 
 
-app = FastAPI(
+api = FastAPI(
     title="API Hotels - Flask & Mongo",
     description="This is a REST API",
     version="0.0.1",
@@ -11,4 +11,4 @@ app = FastAPI(
 )
 
 
-app.include_router(hotel)
+api.include_router(app)

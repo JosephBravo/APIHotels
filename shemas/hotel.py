@@ -5,6 +5,7 @@ def hotel_entity(item) -> dict:
         "id": str(item["_id"]),
         "name": item["name"],
         "city": item["city"],
+        "address": item["address"],
         "email": item["email"],
         "url_picture": item["url_picture"],
         "date_created": item["date_created"]
