@@ -14,16 +14,16 @@ from bson import ObjectId
 from src.utils import *
 from datetime import datetime
 
-app = APIRouter()
+api = APIRouter()
 flask = Flask(__name__)
 
 
-@app.get('/hotels')
+@api.get('/hotels')
 async def find_all_hotel():
     return hotels_entity(conn.local.hotel.find())
 
 
-@app.post('/create_hotel', response_model=Hotel, tags=["create_hotel"])
+@api.post('/create_hotel', response_model=Hotel, tags=["create_hotel"])
 async def create_hotel(hotel: Hotel):
     new_hotel = dict(hotel)
 
@@ -48,19 +48,19 @@ async def create_hotel(hotel: Hotel):
     return hotel_entity(hotel)
 
 
-@app.get('/hotels/{id}', response_model=Hotel, tags=["retrieve_hotel"])
+@api.get('/hotels/{id}', response_model=Hotel, tags=["retrieve_hotel"])
 async def retrieve_user(id: str):
     return hotel_entity(conn.local.hotel.find_one({"_id": ObjectId(id)}))
 
 
-@app.put('/hotels/{id}', response_model=Hotel, tags=["update_hotel"])
+@api.put('/hotels/{id}', response_model=Hotel, tags=["update_hotel"])
 async def update_user(id: str, hotel: Hotel):
     conn.local.hotel.find_one_and_update({"_id": ObjectId(id)},
                                          {"$set": dict(hotel)})
     return hotel_entity(conn.local.hotel.find_one({"_id": ObjectId(id)}))
 
 
-@app.delete("/hotels/{id}", status_code=status.HTTP_204_NO_CONTENT, tags=["delete_hotel"])
+@api.delete("/hotels/{id}", status_code=status.HTTP_204_NO_CONTENT, tags=["delete_hotel"])
 async def delete_user(id: str):
     conn.local.hotel.find_one_and_delete({"_id": ObjectId(id)})
     return Response(status_code=HTTP_204_NO_CONTENT)
