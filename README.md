@@ -1,13 +1,14 @@
 ## HotelsHotels
 
 ## Requirements 🔧
-flask
-pydantic
-fastapi
-starlette
-pymongo
-pytest
-urllib3
+
+* [flask](https://flask.palletsprojects.com/en/2.1.x/)
+* [pydantic](https://pydantic-docs.helpmanual.io/)
+* [fastapi](https://fastapi.tiangolo.com/)
+* [starlette](https://www.starlette.io/)
+* [pymongo](https://www.mongodb.com/cloud/atlas/lp/try2?adgroup=131761122172)
+* [pytest](https://docs.pytest.org/en/7.1.x/)
+* [urllib3](https://pypi.org/project/urllib3/)
 
 ## Installation 📌
 
