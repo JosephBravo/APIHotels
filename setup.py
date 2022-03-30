@@ -12,5 +12,7 @@ setup(
         'fastapi',
         'starlette',
         'pymongo',
+        'pytest',
+        'urllib3'
     ],
 )
